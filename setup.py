@@ -5,10 +5,11 @@
 
 from setuptools import setup
 
+PACKAGES_NAME = "LightWeightServer"
+
 setup(
-    name="LightWeightServer",
+    name=PACKAGES_NAME,
     version="0.1.0",
-    packages=['LightWeightServer', ],
     zip_safe=False,
 
     description="simple http server with tornado.",
@@ -20,9 +21,11 @@ setup(
     keywords=("lightweight", "server"),
     platforms="Independant",
     url="https://github.com/liangguohuan",
+    packages=[PACKAGES_NAME, ],
+    package_dir={PACKAGES_NAME: "src"},
     entry_points={
         'console_scripts': [
-            'LightWeightServer = LightWeightServer.__main__:main',
+            '%s = %s.__main__:main' % (PACKAGES_NAME, PACKAGES_NAME),
         ],
     },
 )
